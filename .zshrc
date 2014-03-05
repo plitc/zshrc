@@ -247,7 +247,11 @@ FreeBSD)
 ### FreeBSD ###
 
    if [ -x /usr/local/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+      if [[ "$TERM" == "xterm" || "$TERM" == "screen" ]]; then
+         if [[ "$TMUX" == "" ]]; then
+            (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main;
+         fi
+      fi
    fi
 
    ;;
@@ -255,7 +259,11 @@ Linux)
 ### Linux ###
 
    if [ -x /usr/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+      if [[ "$TERM" == "xterm" || "$TERM" == "screen" ]]; then
+         if [[ "$TMUX" == "" ]]; then
+            (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main;
+         fi
+      fi
    fi
 
    ;;
@@ -263,7 +271,11 @@ Darwin)
 ### MacOS - Homebrew ###
 
    if [ -x /usr/local/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+      if [[ "$TERM" == "xterm" || "$TERM" == "screen" ]]; then
+         if [[ "$TMUX" == "" ]]; then
+            (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main;
+         fi
+      fi
    fi
 
    ;;
@@ -273,6 +285,8 @@ Darwin)
 esac
 
 #if [[ "$TERM" != "screen" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+#if [[ "$TERM" == "xterm" || "$TERM" == "screen" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+#if [[ ("$TERM" == "xterm" || "$TERM" == "screen") && "$TMUX" == "" ]]; then (tmux); fi
 
 ### ### ### PLITC ### ### ###
 # EOF
