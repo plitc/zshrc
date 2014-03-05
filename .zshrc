@@ -237,6 +237,27 @@ zmodload -a zsh/zprof zprof
 #zmodload -ap zsh/mapfile mapfile
   
 #zmodload -a zsh/complist complist  # Colored completion list
-#
+
+# --------------------------------------------------------------------
+# tmux
+# --------------------------------------------------------------------
+
+# FreeBSD
+if [ -x /usr/local/bin/tmux ]; then
+[[ $TERM != "screen" ]] && exec tmux
+fi
+
+# Mac - Homebrew
+if [ -x /usr/local/bin/tmux ]; then
+[[ $TERM != "screen" ]] && exec tmux
+fi
+
+# Linux
+if [ -x /usr/bin/tmux ]; then
+[[ $TERM != "screen" ]] && exec tmux
+fi
+
+#if [[ "$TERM" != "screen" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+
 ### ### ### PLITC ### ### ###
 # EOF
