@@ -242,20 +242,35 @@ zmodload -a zsh/zprof zprof
 # tmux
 # --------------------------------------------------------------------
 
-# FreeBSD
-if [ -x /usr/local/bin/tmux ]; then
-[[ $TERM != "screen" ]] && exec tmux
-fi
+case $(uname) in
+FreeBSD)
+### FreeBSD ###
 
-# Mac - Homebrew
-if [ -x /usr/local/bin/tmux ]; then
-[[ $TERM != "screen" ]] && exec tmux
-fi
+   if [ -x /usr/local/bin/tmux ]; then
+      if [[ "$TERM" == "xterm" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+   fi
 
-# Linux
-if [ -x /usr/bin/tmux ]; then
-[[ $TERM != "screen" ]] && exec tmux
-fi
+   ;;
+Linux)
+### Linux ###
+
+   if [ -x /usr/bin/tmux ]; then
+      if [[ "$TERM" == "xterm" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+   fi
+
+   ;;
+Darwin)
+### MacOS - Homebrew ###
+
+   if [ -x /usr/local/bin/tmux ]; then
+      if [[ "$TERM" == "xterm" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
+   fi
+
+   ;;
+*)
+###
+   ;;
+esac
 
 #if [[ "$TERM" != "screen" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
 
