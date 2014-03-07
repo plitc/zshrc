@@ -247,7 +247,7 @@ FreeBSD)
 ### FreeBSD ###
 
    if [ -x /usr/local/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "screen" ]]; then
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" ]]; then
          if [[ "$TMUX" == "" ]]; then
             (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main;
          fi
@@ -259,7 +259,7 @@ Linux)
 ### Linux ###
 
    if [ -x /usr/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "screen" ]]; then
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" ]]; then
          if [[ "$TMUX" == "" ]]; then
             (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main;
          fi
@@ -271,7 +271,7 @@ Darwin)
 ### MacOS - Homebrew ###
 
    if [ -x /usr/local/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "screen" ]]; then
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" ]]; then
          if [[ "$TMUX" == "" ]]; then
             (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main;
          fi
