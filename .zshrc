@@ -1,5 +1,5 @@
 ### ### ### PLITC ### ### ###
-setopt ALL_EXPORT       # export all parameters automatically
+setopt ALL_EXPORT                                                     # export all parameters automatically
   
 # --------------------------------------------------------------------
 # History & Environment
@@ -13,53 +13,53 @@ HOSTNAME="`hostname`"
 PAGER='less'
 EDITOR='vim'
   
-setopt APPEND_HISTORY       # append history file, don't overwrite 
-setopt SHARE_HISTORY        # 
-#setopt HIST_IGNORE_ALL_DUPS    # ignore duplicates in history, remove old
-setopt HIST_IGNORE_DUPS     # ignore duplicates in history
-setopt INC_APPEND_HISTORY   # write history entries immediately
-setopt EXTENDED_HISTORY       # puts timestamps in the history
+setopt APPEND_HISTORY                                                 # append history file, don't overwrite 
+setopt SHARE_HISTORY                                                  # 
+#setopt HIST_IGNORE_ALL_DUPS                                          # ignore duplicates in history, remove old
+setopt HIST_IGNORE_DUPS                                               # ignore duplicates in history
+setopt INC_APPEND_HISTORY                                             # write history entries immediately
+setopt EXTENDED_HISTORY                                               # puts timestamps in the history
   
 # --------------------------------------------------------------------
 # General Options
 # --------------------------------------------------------------------
   
-setopt AUTO_CD          # automatically cd to a directory
-unsetopt BEEP           # NOOOOOOOOOO! Don't beep!
+setopt AUTO_CD                                                        # automatically cd to a directory
+unsetopt BEEP                                                         # NOOOOOOOOOO! Don't beep!
   
-setopt LONG_LIST_JOBS   # List jobs in the long format
-unsetopt BG_NICE        # don't nice background jobs
-setopt NOTIFY           # Status of background jobs immediately
+setopt LONG_LIST_JOBS                                                 # List jobs in the long format
+unsetopt BG_NICE                                                      # don't nice background jobs
+setopt NOTIFY                                                         # Status of background jobs immediately
   
-bindkey -v          # use vi style editor
+bindkey -v                                                            # use vi style editor
   
-setopt PUSHD_TO_HOME    # act like `pushd $HOME' without arguments
-setopt PUSHD_SILENT     # Don't print the directory stack after pushd or popd
-setopt AUTO_PUSHD       # Make cd push the old directory onto the directory stack
+setopt PUSHD_TO_HOME                                                  # act like `pushd $HOME' without arguments
+setopt PUSHD_SILENT                                                   # Don't print the directory stack after pushd or popd
+setopt AUTO_PUSHD                                                     # Make cd push the old directory onto the directory stack
   
-setopt EXTENDED_GLOB    # `#',`~' and `^' characters are patterns for filename generation
-setopt GLOB_DOTS        # don't require . on filename recognition
+setopt EXTENDED_GLOB                                                  # `#',`~' and `^' characters are patterns for filename generation
+setopt GLOB_DOTS                                                      # don't require . on filename recognition
   
-setopt RC_QUOTES        # Allow " to signify a single quote within singly quoted strings. 
+setopt RC_QUOTES                                                      # Allow " to signify a single quote within singly quoted strings. 
   
-setopt MAIL_WARNING     # print warning message if a mail file has been accessed
+setopt MAIL_WARNING                                                   # print warning message if a mail file has been accessed
   
 # --------------------------------------------------------------------
 # Command Completion and Correction
 # --------------------------------------------------------------------
   
-setopt CORRECT          # correct spelling
-setopt CORRECT_ALL      # correct the spelling of all arguments in a line
+setopt CORRECT                                                        # correct spelling
+setopt CORRECT_ALL                                                    # correct the spelling of all arguments in a line
   
-#setopt AUTO_MENU       # use menu completion
+#setopt AUTO_MENU                                                     # use menu completion
 ### - OR -
-setopt MENU_COMPLETE    # tab through possibilities
+setopt MENU_COMPLETE                                                  # tab through possibilities
   
-setopt ALWAYS_TO_END     # move cursor to the end of the word on completion 
-setopt CDABLE_VARS      # expand expression as if it were preceded by a `~' on cd
-setopt AUTO_LIST        # list choices on an ambiguous completion
+setopt ALWAYS_TO_END                                                  # move cursor to the end of the word on completion 
+setopt CDABLE_VARS                                                    # expand expression as if it were preceded by a `~' on cd
+setopt AUTO_LIST                                                      # list choices on an ambiguous completion
   
-setopt AUTO_PARAM_SLASH # If the parameter content is a directory, add a trailing slash
+setopt AUTO_PARAM_SLASH                                               # If the parameter content is a directory, add a trailing slash
   
 # --------------------------------------------------------------------
 # Prompts & Colors
@@ -125,23 +125,23 @@ fi
 # Key bindings
 # --------------------------------------------------------------------
   
-bindkey "^H" backward-delete-char           # delete the character behind with ctrl+h
-bindkey '^[OH' beginning-of-line            # change to start of line on START
-bindkey '^[OF' end-of-line              # change to end of line on END
-bindkey '^[[5~' up-line-or-history          # pgup, go up one line
-bindkey '^[[6~' down-line-or-history        # pgdown, go down one line
+bindkey "^H" backward-delete-char                                     # delete the character behind with ctrl+h
+bindkey '^[OH' beginning-of-line                                      # change to start of line on START
+bindkey '^[OF' end-of-line                                            # change to end of line on END
+bindkey '^[[5~' up-line-or-history                                    # pgup, go up one line
+bindkey '^[[6~' down-line-or-history                                  # pgdown, go down one line
   
 bindkey '^[[A' up-line-or-history
 bindkey '^[[B' down-line-or-history
   
-bindkey "^r" history-incremental-search-backward    # search backwards with ctrl+r
-bindkey "^t" history-incremental-search-forward     # search forward with ctrl+t
+bindkey "^r" history-incremental-search-backward                      # search backwards with ctrl+r
+bindkey "^t" history-incremental-search-forward                       # search forward with ctrl+t
   
-bindkey ' ' magic-space                 # do history expansion on space
-bindkey '^I' complete-word              # complete on tab, leave expansion to _expand
+bindkey ' ' magic-space                                               # do history expansion on space
+bindkey '^I' complete-word                                            # complete on tab, leave expansion to _expand
   
-bindkey    "^[[3~"          delete-char         # delete one character behind the cursor on DEL 
-bindkey    "^[3;5~"         delete-char         # same
+bindkey    "^[[3~"          delete-char                               # delete one character behind the cursor on DEL 
+bindkey    "^[3;5~"         delete-char                               # same
   
 # --------------------------------------------------------------------
 # Completion parameters
@@ -231,12 +231,12 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # Autoload zsh modules
 # --------------------------------------------------------------------
   
-zmodload -a zsh/stat stat       # provide a stat builtin
-zmodload -a zsh/zpty zpty       # zpty builtin (start command in new pseudo pty)
+zmodload -a zsh/stat stat                                             # provide a stat builtin
+zmodload -a zsh/zpty zpty                                             # zpty builtin (start command in new pseudo pty)
 zmodload -a zsh/zprof zprof     
 #zmodload -ap zsh/mapfile mapfile
   
-#zmodload -a zsh/complist complist  # Colored completion list
+#zmodload -a zsh/complist complist                                    # Colored completion list
 
 # --------------------------------------------------------------------
 # tmux
