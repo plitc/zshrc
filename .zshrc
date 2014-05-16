@@ -249,8 +249,10 @@ FreeBSD)
 
    if [ -x /usr/local/bin/tmux ]; then
       if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" ]]; then
-         if [[ "$TMUX" == "" ]]; then
-            (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main && cat /etc/motd;
+         if [[ "$DESKTOP_SESSION" == "" ]]; then
+            if [[ "$TMUX" == "" ]]; then
+               (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main && cat /etc/motd;
+            fi
          fi
       fi
    fi
@@ -260,9 +262,11 @@ Linux)
 ### Linux ###
 
    if [ -x /usr/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" ]]; then
-         if [[ "$TMUX" == "" ]]; then
-            (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main && cat /etc/motd;
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" || "$TERM" == "linux" ]]; then
+         if [[ "$DESKTOP_SESSION" == "" ]]; then
+            if [[ "$TMUX" == "" ]]; then
+               (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main && cat /etc/motd;
+            fi
          fi
       fi
    fi
@@ -284,10 +288,6 @@ Darwin)
 ###
    ;;
 esac
-
-#if [[ "$TERM" != "screen" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
-#if [[ "$TERM" == "xterm" || "$TERM" == "screen" ]]; then (tmux has -t main 2>/dev/null && tmux attach -t main) || (tmux new -s main && cat /etc/motd); fi
-#if [[ ("$TERM" == "xterm" || "$TERM" == "screen") && "$TMUX" == "" ]]; then (tmux); fi
 
 ### ### ### PLITC ### ### ###
 # EOF
