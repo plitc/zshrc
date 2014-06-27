@@ -289,5 +289,11 @@ Darwin)
    ;;
 esac
 
+### HOSTING // ###
+if [ -x /admin/ezjail-stop-all-jails.csh ]; then
+   alias reboot='/admin/ezjail-stop-all-jails.csh; /sbin/reboot'
+fi
+### // HOSTING ###
+
 ### ### ### PLITC ### ### ###
 # EOF
