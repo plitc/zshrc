@@ -258,6 +258,20 @@ FreeBSD)
    fi
 
    ;;
+OpenBSD)
+### OpenBSD ###
+
+   if [ -x /usr/bin/tmux ]; then
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" || "$TERM" == "vt220" ]]; then
+         if [[ "$DESKTOP_SESSION" == "" ]]; then
+            if [[ "$TMUX" == "" ]]; then
+               (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main && cat /etc/motd;
+            fi
+         fi
+      fi
+   fi
+
+   ;;
 Linux)
 ### Linux ###
 
