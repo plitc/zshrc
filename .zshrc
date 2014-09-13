@@ -11,8 +11,8 @@ SAVEHIST=25000
 HOSTNAME="`hostname`"
   
 PAGER='less'
-#EDITOR='vim'
-EDITOR='vi'
+EDITOR='vim'
+#EDITOR='vi'
   
 setopt APPEND_HISTORY                                                 # append history file, don't overwrite 
 setopt SHARE_HISTORY                                                  # 
