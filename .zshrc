@@ -248,7 +248,7 @@ FreeBSD)
 ### FreeBSD ###
 
    if [ -x /usr/local/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" || "$TERM" == "cons25" || "$TERM" == "cons25l1" ]]; then
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" || "$TERM" == "cons25" || "$TERM" == "cons25l1" || "$TERM" == "rxvt-unicode-256color" ]]; then
          if [[ "$DESKTOP_SESSION" == "" ]]; then
             if [[ "$TMUX" == "" ]]; then
                (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main && cat /etc/motd;
@@ -276,7 +276,7 @@ Linux)
 ### Linux ###
 
    if [ -x /usr/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" || "$TERM" == "linux" ]]; then
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" || "$TERM" == "linux" || "$TERM" == "rxvt-unicode-256color" ]]; then
          if [[ "$DESKTOP_SESSION" == "" ]]; then
             if [[ "$TMUX" == "" ]]; then
                (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main && cat /etc/motd;
@@ -290,7 +290,7 @@ Darwin)
 ### MacOS - Homebrew ###
 
    if [ -x /usr/local/bin/tmux ]; then
-      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" ]]; then
+      if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" || "$TERM" == "rxvt" || "$TERM" == "screen" || "$TERM" == "rxvt-unicode-256color" ]]; then
          if [[ "$TMUX" == "" ]]; then
             (tmux has -t main 2>/dev/null && tmux attach -t main) || tmux new -s main;
          fi
