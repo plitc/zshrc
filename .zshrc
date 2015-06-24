@@ -125,7 +125,8 @@ fi
 # --------------------------------------------------------------------
 # Key bindings
 # --------------------------------------------------------------------
-  
+
+bindkey -e # emacs key binding
 bindkey "^H" backward-delete-char                                     # delete the character behind with ctrl+h
 bindkey '^[OH' beginning-of-line                                      # change to start of line on START
 bindkey '^[OF' end-of-line                                            # change to end of line on END
